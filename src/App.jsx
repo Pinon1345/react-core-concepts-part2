@@ -2,6 +2,13 @@ import './App.css';
 import Counter from './counter';
 import Batsman from './batsman';
 import Bowler from './bowler';
+import Users from './users';
+import Friends from './Friends';
+import { Suspense } from 'react';
+
+const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response => response.json())
+
 
 function App() {
 
@@ -23,6 +30,12 @@ function App() {
   return (
     <>
       <h1 className='firstText'>Get Started</h1>
+
+      <Suspense fallback={<h3>Loading ... </h3>}>
+
+        <Users fetchUsers={fetchUsers}></Users>
+
+      </Suspense>
 
       <Counter></Counter>
       <Batsman></Batsman>
