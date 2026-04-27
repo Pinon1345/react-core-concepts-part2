@@ -63,6 +63,8 @@ function App() {
     <>
       <h1 className='firstText'>Get Started</h1>
 
+      <Players></Players>
+
       <Suspense fallback={<h3>Please wait! Your posts are coming...</h3>}>
         <Posts postsPromise={postsPromise}></Posts>
 
